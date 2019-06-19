@@ -29,6 +29,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 
 gem 'rubocop', '0.67.0'
+gem 'pg', '>= 0.18'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
