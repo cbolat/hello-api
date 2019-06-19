@@ -33,6 +33,5 @@ target
 .yardoc
 doc
 
-.ruby-gemset
 .tags
 .pryrc
