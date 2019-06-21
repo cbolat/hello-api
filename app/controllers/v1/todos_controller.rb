@@ -6,8 +6,9 @@ class TodosController < ApplicationController
 
   # GET /todos
   def index
+    binding.pry
     # get current user todos
-    @todos = current_user.todos
+    @todos = current_user.todos.paginate(page: params[:page], per_page:20)
     json_response(@todos)
   end
 
@@ -43,6 +44,7 @@ class TodosController < ApplicationController
   end
 
   def set_todo
+    binding.pry
     @todo = Todo.find(params[:id])
   end
 end

@@ -19,8 +19,9 @@ gem 'puma', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
-
+gem 'will_paginate', '~> 3.1.0'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -30,6 +31,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'pry-rails'
+  gem 'byebug'
 end
 
 group :test do
