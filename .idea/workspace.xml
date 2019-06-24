@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7edf80f-a552-423f-a78b-b0c1ac1d0cf4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/todo_mailer/welcome_email.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hello-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hello-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/authorize_api_request.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/authorize_api_request.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/v1/items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/items_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/message.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/message.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/mailer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/mailer.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/requests/users_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/users_spec.rb" afterDir="false" />
-    </list>
+    <list default="true" id="b7edf80f-a552-423f-a78b-b0c1ac1d0cf4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/log/" />
@@ -517,12 +504,12 @@
       <workItem from="1561324946191" duration="509000" />
       <workItem from="1561325476845" duration="437000" />
       <workItem from="1561358629977" duration="590000" />
-      <workItem from="1561361182496" duration="3910000" />
+      <workItem from="1561361182496" duration="4443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25116000" />
+    <option name="totallyTimeSpent" value="25649000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
