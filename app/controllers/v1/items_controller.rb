@@ -17,6 +17,20 @@ class ItemsController < ApplicationController
   def create
     @todo.items.create!(item_params)
     json_response(@todo, :created)
+    respond_to do |format|
+      if @item.save
+        # Tell the UserMailer to send a welcome email after save
+        todo_mailer.with(user: @user).welcome_email.deliver_later
+
+        format.html { redirect_to(@user, notice: 'Item was successfully created.') }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+      flash[:notice] = "user created & mail sent"
+
+    end
   end
 
   # PUT /todos/:todo_id/items/:id
