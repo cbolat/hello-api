@@ -4,7 +4,10 @@ Rails.application.routes.draw do
       resources :items
     end
 
-  resources :jobs do
-    resources :users
-  end
+
+    post 'auth/login', to: 'authentication#authenticate'
+
+  post 'signup', to: 'userbs#create'
+
+
 end
