@@ -1,24 +1,9 @@
-# README
+ ![Code Climate](https://codeclimate.com/github/akabiru/todos-api/badges/gpa.svg) [![Coverage Status](https://coveralls.io/repos/github/akabiru/todos-api/badge.svg?branch=master)](https://coveralls.io/github/akabiru/todos-api?branch=master) [![Build Status](https://travis-ci.org/akabiru/todos-api.svg?branch=master)](https://travis-ci.org/akabiru/todos-api)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# todos-api (RESTful JSON API with Rails 5)
 
-Things you may want to cover:
+This repo is the source companion for the @scotch-io tutorial series [Build a RESTful JSON API with Rails 5](https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* [Part One](https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one) - [source](https://github.com/akabiru/todos-api/tree/part-one)
+* [Part Two](https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-two) - [source](https://github.com/akabiru/todos-api/tree/part-two)
+* [Part Three](https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-three) - [source](https://github.com/akabiru/todos-api/tree/part-three)

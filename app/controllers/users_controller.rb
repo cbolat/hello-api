@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # skip_before_action :authorize_request, only: :create
+  skip_before_action :authorize_request, only: :create
   # POST /signup
   # return authenticated token upon signup
   def create
@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     response = {message: Message.account_created, auth_token: auth_token}
     json_response(response, :created)
 
+    TodoMailer.welcome_email.deliver_now
 
 
   end
@@ -22,8 +23,4 @@ class UsersController < ApplicationController
         :password_confirmation
     )
   end
-  end
-
-
-
-
+end
