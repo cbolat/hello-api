@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative  '../rails_helper.rb'
 
 RSpec.describe 'Todos API', type: :request do
   # add todos owner

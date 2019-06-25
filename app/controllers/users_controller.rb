@@ -8,7 +8,9 @@ class UsersController < ApplicationController
     response = {message: Message.account_created, auth_token: auth_token}
     json_response(response, :created)
 
+    #TodoMailer.welcome_email.deliver_now
     TodoMailer.welcome_email.deliver_now
+    #flash[:message] = "You did it! Email sent"
 
 
   end

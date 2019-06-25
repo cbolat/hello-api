@@ -25,12 +25,12 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-
+  config.cache_store = :redis_store, "redis://localhost:6379/1/ns"
   config.active_job.queue_adapter = :sidekiq
 
   config.active_job.queue_name_prefix = "mysite"
   config.active_job.queue_name_delimiter = "_"
-
+  config.active_job.queue_adapter = :sidekiq
   # Don't care if the mailer can't send.
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
