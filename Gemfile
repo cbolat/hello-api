@@ -24,6 +24,8 @@ gem 'puma', '~> 3.11'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'sidekiq'
+gem 'redis-namespace'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -31,6 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rubocop', '0.67.0'
 gem 'pg', '>= 0.18'
 gem 'jwt'
+gem 'rest-client', '~> 1.6.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

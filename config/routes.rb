@@ -4,10 +4,11 @@ Rails.application.routes.draw do
       resources :items
     end
 
-
     post 'auth/login', to: 'authentication#authenticate'
+    post 'signup', to: 'userbs#create'
 
-  post 'signup', to: 'userbs#create'
+
+
 
 
 end
