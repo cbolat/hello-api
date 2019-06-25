@@ -61,3 +61,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt'
+
+gem 'figaro'
+
+gem 'pry-rails'
+
+gem 'delayed_job_active_record'
+
+gem 'sidekiq'
+
+gem 'mail'
+
+gem 'mailgun-ruby'

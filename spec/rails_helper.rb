@@ -7,6 +7,12 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'database_cleaner'
+require 'support/request_spec_helper'
+require 'support/controller_spec_helper'
+require 'mail'
+
+
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -36,7 +42,7 @@ RSpec.configure do |config|
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
-  # instead of true.
+  # instead of true.r
   config.use_transactional_fixtures = true
 
   # RSpec Rails can automatically mix in different behaviours to your tests
@@ -58,18 +64,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-end
 
-# configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
-end
-
-# [...]
-RSpec.configure do |config|
   # [...]
   # add `FactoryBot` methods
   config.include FactoryBot::Syntax::Methods
@@ -86,23 +81,18 @@ RSpec.configure do |config|
       example.run
     end
   end
-  # [...]
-end
 
-# spec/rails_helper.rb
-# [...]
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-# [...]
-RSpec.configure do |config|
-  # [...]
   config.include RequestSpecHelper, type: :request
-  # [...]
-end
 
-RSpec.configure do |config|
-  # [...]
   # previously `config.include RequestSpecHelper, type: :request`
   config.include RequestSpecHelper
   config.include ControllerSpecHelper
-  # [...]
+end
+
+# configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end

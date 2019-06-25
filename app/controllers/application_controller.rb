@@ -20,3 +20,18 @@ class ApplicationController < ActionController::API
   skip_before_action :authorize_request, only: :create
   skip_before_action :authorize_request, only: :authenticate
 end
+
+class ApplicationController < ActionController::API
+  include ActionController::MimeResponds
+end
+
+class PostsController < ApplicationController
+  def index
+    posts = Post.all
+
+    respond_to do |format|
+      format.json { render json: posts }
+      format.xml  { render xml: posts }
+    end
+  end
+end
