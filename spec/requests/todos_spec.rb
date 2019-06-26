@@ -38,7 +38,7 @@ RSpec.describe 'Todos API', type: :request do
     end
 
     context 'when the record does not exist' do
-      let(:todo_id) { 100 }
+      let(:todo_id) { 999 }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
