@@ -1,11 +1,10 @@
 class ApplicationController < ActionController::API
-  include ActionController::MimeResponds
   include Response
   include ExceptionHandler
+
   # called before every action on controllers
   before_action :authorize_request
   attr_reader :current_user
-  #respond_to :html, :json
 
   private
 
