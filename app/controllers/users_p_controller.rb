@@ -5,6 +5,7 @@ class UsersPController < ApplicationController
     auth_token=AuthenticateUser.new(user.email,user.password).call
     response={ message: Message.account_created, auth_token: auth_token}
     json_response(response, :created)
+
   end
 
   private
@@ -12,8 +13,8 @@ class UsersPController < ApplicationController
     params.permit(
               :name,
               :email,
-              :password,
-              :password_confirmation
+              :password
+            #  :password_confirmation
     )
   end
 

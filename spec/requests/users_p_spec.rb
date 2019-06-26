@@ -23,6 +23,7 @@ RSpec.describe 'Users API', type: :request do
       it 'returns an authentication token' do
         expect(json['auth_token']).not_to be_nil
       end
+
     end
 
     context 'when invalid request' do
@@ -34,7 +35,7 @@ RSpec.describe 'Users API', type: :request do
 
       it 'returns failure message' do
         expect(json['message'])
-            .to match(/Validation failed: Password can't be blank, Name can't be blank, Email can't be blank/)
+            .to match(/Validation failed: Name can't be blank, Email can't be blank, Password can't be blank/)
       end
     end
   end

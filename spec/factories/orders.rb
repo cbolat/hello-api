@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :item do
+  factory :order do
     name { Faker::Movies::StarWars.character }
-    done false
+    price 123
     todo nil
   end
 end
