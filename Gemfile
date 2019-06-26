@@ -17,11 +17,12 @@ gem 'puma', '~> 3.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-gem 'jwt'
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'will_paginate', '~> 3.1.0'
+gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
+gem 'jwt'
+gem 'sidekiq'
+gem 'will_paginate', '~> 3.1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -29,16 +30,16 @@ gem 'faker'
 # gem 'rack-cors'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :test do
-  gem "factory_bot_rails", "~> 4.0"
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'faker'
-  gem 'database_cleaner'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem "factory_bot_rails", "~> 4.0"
+  gem 'faker'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do

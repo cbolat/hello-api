@@ -41,7 +41,7 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-
+  config.include RequestSpecHelper, type: :request
   config.include FactoryBot::Syntax::Methods
 
   config.before(:suite) do
