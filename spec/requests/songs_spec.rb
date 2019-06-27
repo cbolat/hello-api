@@ -28,9 +28,9 @@ RSpec.describe 'Songs API' do
         expect(response).to have_http_status(404)
       end
 
-#      it 'returns a not found message' do
-      #  gerexpect(response.body).to match(/Couldn't find sin/)
-     # end
+     it 'returns a not found message' do
+       expect(response.body).to match(/Couldn't find Singer/)
+     end
     end
   end
 
@@ -111,9 +111,9 @@ RSpec.describe 'Songs API' do
         expect(response).to have_http_status(404)
       end
 
-#      it 'returns a not found message' do
-      #  expect(response.body).to match(/Couldn't find song/)
-      #end
+      it 'returns a not found message' do
+       expect(response.body).to match(/Couldn't find Song/)
+      end
     end
   end
 

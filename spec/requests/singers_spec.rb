@@ -43,8 +43,9 @@ RSpec.describe 'Singer API', type: :request do
         expect(response).to have_http_status(404)
       end
 
-     # it 'returns a not found message' do
-      #  expect(response.body).to match(/Couldn't find singer/)
+     it 'returns a not found message' do
+       expect(response.body).to match(/Couldn't find Singer/)
+
 
     end
   end
@@ -105,4 +106,5 @@ RSpec.describe 'Singer API', type: :request do
       expect(response).to have_http_status(204)
     end
   end
-end
+  end
+  end
