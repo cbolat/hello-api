@@ -7,7 +7,7 @@ module ControllerSpecHelper
     JsonWebToken.encode({ userb_id: userb_id }, (Time.now.to_i - 10))
   end
 
-  # return valid headers
+
   def valid_headers
     {
         "Authorization" => token_generator(userb.id),
@@ -15,7 +15,7 @@ module ControllerSpecHelper
     }
   end
 
-  # return invalid headers
+
   def invalid_headers
     {
         "Authorization" => nil,

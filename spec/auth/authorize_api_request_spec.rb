@@ -15,7 +15,7 @@ RSpec.describe AuthorizeApiRequest do
       end
     end
 
-    # returns error message when invalid request
+
     context 'when invalid request' do
       context 'when missing token' do
         it 'raises a MissingToken error' do
@@ -26,7 +26,7 @@ RSpec.describe AuthorizeApiRequest do
 
       context 'when invalid token' do
         subject(:invalid_request_obj) do
-          # custom helper method `token_generator`
+
           described_class.new('Authorization' => token_generator(5))
         end
 

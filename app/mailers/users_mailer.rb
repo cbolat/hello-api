@@ -3,11 +3,12 @@ class UsersMailer < ActionMailer::Base
   def welcome_email(email)
 
     @email = email
-    mail(
-                    :from => "Excited User <mailgun@sandbox81f573c040064bdaad555c6175c7beb7.mailgun.org>",
+    RestClient.post ""\"",
+
+                    :from => "Sefu la bani <mailgun@sandboxc0ad8be77da3401f88e974c481120bb6.mailgun.org>",
                     :to => @email,
-                    :subject => "Hello",
-                    :text => "Testing some Mailgun awesomness!"
-    )
+                    :subject => "TESTING",
+                    :text => "IS THIS AN EMAIL?"
+
     end
   end

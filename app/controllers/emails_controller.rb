@@ -4,7 +4,7 @@ class EmailsController < ApplicationController
   skip_before_action :authorize_request, only: :create
 
   def create
-    UsersMailer.welcome_email(email_params[:email_address]).perform_async
+    UsersMailer.welcome_email(email_params[:email_address]).deliver_later
 
   end
 
