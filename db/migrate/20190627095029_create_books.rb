@@ -1,6 +1,6 @@
-class CreateTrees < ActiveRecord::Migration[5.2]
+class CreateBooks < ActiveRecord::Migration[5.2]
   def change
-    create_table :trees do |t|
+    create_table :books do |t|
       t.string :title
       t.string :created_by
 

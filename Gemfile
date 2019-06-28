@@ -37,6 +37,11 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-thread_safety'
   gem 'rspec-rails', '~> 3.5'
+
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'faker'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -64,8 +69,6 @@ gem 'jwt'
 
 gem 'figaro'
 
-gem 'pry-rails'
-
 gem 'delayed_job_active_record'
 
 gem 'sidekiq'
@@ -73,3 +76,5 @@ gem 'sidekiq'
 gem 'mail'
 
 gem 'mailgun-ruby'
+
+gem 'pry-byebug'

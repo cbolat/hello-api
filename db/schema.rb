@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_25_064622) do
+ActiveRecord::Schema.define(version: 2019_06_27_095105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "created_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -39,15 +46,6 @@ ActiveRecord::Schema.define(version: 2019_06_25_064622) do
     t.index ["todo_id"], name: "index_items_on_todo_id"
   end
 
-  create_table "leafs", force: :cascade do |t|
-    t.string "title"
-    t.string "created_by"
-    t.bigint "todo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["todo_id"], name: "index_leafs_on_todo_id"
-  end
-
   create_table "mails", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -55,14 +53,16 @@ ActiveRecord::Schema.define(version: 2019_06_25_064622) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "todos", force: :cascade do |t|
+  create_table "pages", force: :cascade do |t|
     t.string "title"
     t.string "created_by"
+    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_pages_on_book_id"
   end
 
-  create_table "trees", force: :cascade do |t|
+  create_table "todos", force: :cascade do |t|
     t.string "title"
     t.string "created_by"
     t.datetime "created_at", null: false
@@ -78,5 +78,5 @@ ActiveRecord::Schema.define(version: 2019_06_25_064622) do
   end
 
   add_foreign_key "items", "todos"
-  add_foreign_key "leafs", "todos"
+  add_foreign_key "pages", "books"
 end

@@ -3,6 +3,6 @@ class SendEmailJob < ActiveJob::Base
 
   def perform(user)
     @user = user
-    ExampleMailer.sample_email(@user).deliver_later
+    ExampleMailer.send_simple_message(@user).deliver_later
   end
 end
