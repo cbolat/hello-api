@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     # ExampleMailer.send_simple_message(user).perform_async
     # SendEmailJob.set(wait: 20.seconds).perform_later(@user)
    # ExampleMailer.send_simple_message.deliver_now
-    @user = User.new(user_params)
+   #  @user = User.new(user_params)
 
    # respond_to do |format|
    #
