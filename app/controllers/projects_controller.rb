@@ -2,7 +2,8 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :update, :destroy]
 
   def index
-    @projects = current_userb.projects
+    @projects = Project.filter(params.slice(:starts_with))
+
     json_response(@projects)
 
   end
@@ -40,5 +41,6 @@ class ProjectsController < ApplicationController
   def set_project
     @project = Project.find(params[:id])
   end
+
 
 end
