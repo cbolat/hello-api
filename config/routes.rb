@@ -6,9 +6,13 @@ Rails.application.routes.draw do
       resources :customers
     end
 
+    resources :projects do
+      resources :employees
+    end
+
     post 'auth/login', to: 'authentication#authenticate'
     post 'signup', to: 'userbs#create'
     post 'email', to: 'emails#create'
-
-
+    root :to => 'index#index'
+    get 'showAll', to: 'projects#showAll'
 end

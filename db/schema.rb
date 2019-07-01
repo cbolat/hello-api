@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_085356) do
+ActiveRecord::Schema.define(version: 2019_07_01_071933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2019_06_26_085356) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["todo_id"], name: "index_customers_on_todo_id"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.boolean "paid"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_employees_on_project_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -42,6 +51,13 @@ ActiveRecord::Schema.define(version: 2019_06_26_085356) do
     t.index ["todo_id"], name: "index_orders_on_todo_id"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.string "created_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "todos", force: :cascade do |t|
     t.string "title"
     t.string "created_by"
@@ -58,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_06_26_085356) do
   end
 
   add_foreign_key "customers", "todos"
+  add_foreign_key "employees", "projects"
   add_foreign_key "items", "todos"
   add_foreign_key "orders", "todos"
 end
