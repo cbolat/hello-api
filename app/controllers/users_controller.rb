@@ -8,9 +8,8 @@ class UsersController < ApplicationController
     auth_token = AuthenticateUser.new(user.email, user.password).call
     response = { message: Message.account_created, auth_token: auth_token }
     json_response(response, :created)
-    ExampleMailer.send_simple_message(user).perform_async
+    # ExampleMailer.send_simple_message(user).perform_async
     # SendEmailJob.set(wait: 20.seconds).perform_later(@user)
-   # SendEmailJob.set(wait: 20.seconds).perform_later(@user)
    # ExampleMailer.send_simple_message.deliver_now
     @user = User.new(user_params)
 
