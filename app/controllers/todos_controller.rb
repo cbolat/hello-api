@@ -6,8 +6,10 @@ class TodosController < ApplicationController
 
   # GET /todos
   def index
-    @todos = current_user.todos
-    json_response(@todos)
+    # @todos = current_user.todos
+    # json_response(@todos)
+    @todos = Todo.filter(params.slice(:title))
+    render :json => @todos, :include =>'items'
   end
 
   # POST /todos
