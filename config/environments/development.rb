@@ -12,6 +12,14 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  config.active_job.queue_adapter = :sidekiq
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.active_job.queue_name_prefix = "mysite"
+  config.active_job.queue_name_delimiter = "_"
+  config.action_mailer.delivery_method = :smtp
+
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
