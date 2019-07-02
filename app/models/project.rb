@@ -5,6 +5,6 @@ class Project < ApplicationRecord
 
   validates_presence_of :title, :created_by
 
-  scope :starts_with, -> (title) { where("name like ?", "#{title}%")}
+  scope :starts_with, -> (title) { where("title like ?", "#{title}%")}
 
 end

@@ -10,9 +10,13 @@ Rails.application.routes.draw do
       resources :employees
     end
 
+    resources :notes do
+      resources :posts
+    end
+
     post 'auth/login', to: 'authentication#authenticate'
     post 'signup', to: 'userbs#create'
     post 'email', to: 'emails#create'
     root :to => 'index#index'
-    get 'showAll', to: 'projects#showAll'
+    get 'showAll', to: 'projects#showall'
 end

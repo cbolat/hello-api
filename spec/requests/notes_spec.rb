@@ -1,17 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe 'Projects API', type: :request do
+RSpec.describe 'Notes API', type: :request do
 
   let(:userb) { create(:userb) }
-  let!(:projects) { create_list(:project, 10, created_by: userb.id) }
-  let(:project_id) { projects.first.id }
+  let!(:notes) { create_list(:note, 10, created_by: userb.id) }
+  let(:note_id) { notes.first.id }
   let(:headers) { valid_headers }
 
-  describe "GET /projects" do
+  describe 'GET /notes' do
+    before { get '/notes', params: {}, headers: headers }
 
-    before { get '/projects', params: {}, headers: headers }
-
-    it 'retruns projects' do
+    it 'returns notes' do
       expect(json).not_to be_empty
       expect(json.size).to eq(10)
     end
@@ -21,13 +20,13 @@ RSpec.describe 'Projects API', type: :request do
     end
   end
 
-  describe 'GET /projects/:id' do
-    before { get "/projects/#{project_id}", params: {}, headers: headers }
+  describe 'GET /notes/:id' do
+    before { get "/notes/#{note_id}", params: {}, headers: headers }
 
     context 'when the record exists' do
-      it 'returns the project' do
+      it 'returns the note' do
         expect(json).not_to be_empty
-        expect(json['id']).to eq(project_id)
+        expect(json['id']).to eq(note_id)
       end
 
       it 'returns status code 200' do
@@ -36,30 +35,28 @@ RSpec.describe 'Projects API', type: :request do
     end
 
     context 'when the record does not exist' do
-      let(:project_id) { 999 }
+      let(:note_id) { 345 }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find Project/)
+        expect(response.body).to match(/Couldn't find Note/)
       end
     end
   end
 
-
-  describe 'POST /projects' do
-
+  describe 'POST /notes' do
     let(:valid_attributes) do
-      { title: 'Generate Reports', created_by:userb.id.to_s }.to_json
+      { title: 'Welcome', created_by:userb.id.to_s }.to_json
     end
 
     context 'when the request is valid' do
-      before { post '/projects', params: valid_attributes, headers: headers }
+      before { post '/notes', params: valid_attributes, headers: headers }
 
-      it 'creates a project' do
-        expect(json['title']).to eq('Generate Reports')
+      it 'creates a note' do
+        expect(json['title']).to eq('Welcome')
       end
 
       it 'returns status code 201' do
@@ -69,7 +66,7 @@ RSpec.describe 'Projects API', type: :request do
 
     context 'when the request is invalid' do
       let(:invalid_attributes) { { title: nil }.to_json }
-      before { post '/projects', params: invalid_attributes, headers: headers }
+      before { post '/notes', params: invalid_attributes, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -78,14 +75,17 @@ RSpec.describe 'Projects API', type: :request do
       it 'returns a validation failure message' do
         expect(json['message']).to match(/Validation failed: Title can't be blank/)
       end
+
     end
   end
 
-  describe 'PUT /projects/:id' do
-    let(:valid_attributes) { { title: 'Rebuild wireframe' }.to_json }
+  describe 'PUT /notes/:id' do
+    let(:valid_attributes) { { title: "Hello World" }.to_json }
+
+
 
     context 'when the record exists' do
-      before { put "/projects/#{project_id}", params: valid_attributes, headers: headers }
+      before { put "/notes/#{note_id}", params: valid_attributes, headers: headers }
 
       it 'updates the record' do
         expect(response.body).to be_empty
@@ -97,18 +97,12 @@ RSpec.describe 'Projects API', type: :request do
     end
   end
 
-  describe 'DELETE /projects/:id' do
-    before { delete "/projects/#{project_id}", params: {}, headers: headers }
+  describe 'DELETE /notes/:id' do
+    before { delete "/notes/#{note_id}", params: {}, headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end
   end
-
-
-
-
-
-
 
 end

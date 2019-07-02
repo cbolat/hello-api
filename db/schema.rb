@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_071933) do
+ActiveRecord::Schema.define(version: 2019_07_02_074943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 2019_07_01_071933) do
     t.index ["todo_id"], name: "index_items_on_todo_id"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.string "title"
+    t.string "created_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "name"
     t.boolean "done"
@@ -49,6 +56,15 @@ ActiveRecord::Schema.define(version: 2019_07_01_071933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["todo_id"], name: "index_orders_on_todo_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.boolean "done"
+    t.bigint "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_posts_on_note_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -77,4 +93,5 @@ ActiveRecord::Schema.define(version: 2019_07_01_071933) do
   add_foreign_key "employees", "projects"
   add_foreign_key "items", "todos"
   add_foreign_key "orders", "todos"
+  add_foreign_key "posts", "notes"
 end

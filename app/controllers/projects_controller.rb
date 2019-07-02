@@ -3,9 +3,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.filter(params.slice(:starts_with))
-
     json_response(@projects)
-
   end
 
   def create
@@ -27,7 +25,7 @@ class ProjectsController < ApplicationController
     head :no_content
   end
 
-  def showAll
+  def showall
     @project = current_userb.projects
     render json: @project, include: 'employees'
   end

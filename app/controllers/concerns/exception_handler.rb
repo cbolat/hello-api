@@ -11,8 +11,8 @@ module ExceptionHandler
   included do
     rescue_from ActiveRecord::RecordInvalid, with: :four_twenty_two
     rescue_from ExceptionHandler::AuthenticationError, with: :unauthorized_request
-    rescue_from ExceptionHandler::MissingToken, with: :four_twenty_two
-    rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
+    rescue_from ExceptionHandler::MissingToken, with: :four_hundred_one
+    rescue_from ExceptionHandler::InvalidToken, with: :four_hundred_one
     rescue_from ExceptionHandler::ExpiredSignature, with: :four_ninety_eight
 
     rescue_from ActiveRecord::RecordNotFound do |e|
@@ -32,6 +32,10 @@ module ExceptionHandler
 
   def four_ninety_eight(e)
     json_response({ message: e.message }, :invalid_token)
+  end
+
+  def four_hundred_one(e)
+    json_response({message: e.message}, :unauthorized)
   end
 
 end
