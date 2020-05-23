@@ -12,26 +12,14 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
-/coverage
-/spec/coverage
-target
-/target/coverage/**/*
-/test/reports
-/vendor/gems
-/storage/*
-!/storage/.keep
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 
-.idea
-.vscode
-*.iml
-**/.DS_Store
+# Ignore Byebug command history file.
+.byebug_history
+.vscode/
 
-.rakeTasks
-.generators
-.yardoc
-doc
-
-.tags
-.pryrc
+# Ignore Coveralls local results data
+coverage/
